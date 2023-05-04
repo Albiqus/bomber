@@ -1,4 +1,4 @@
-import { SET_IS_GAME_WINDOW } from "../data/actionTypes"
+import { SET_IS_GAME_WINDOW } from "../../data/actionTypes"
 
 export const setIsGameWindow = (status: boolean) => {
     return {

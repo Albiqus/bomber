@@ -1,4 +1,4 @@
-import { SET_IS_INITIAL_WINDOW } from "../data/actionTypes"
+import { SET_IS_INITIAL_WINDOW } from "../../data/actionTypes"
 
 
 export const setIsInitialWindow = (status: boolean) => {

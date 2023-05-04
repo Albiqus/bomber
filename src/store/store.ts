@@ -1,3 +1,4 @@
+import { player } from './reducers/player';
 import { location } from './reducers/location';
 import { sounds } from './reducers/sounds';
 import { createStore, combineReducers } from "redux";
@@ -7,7 +8,8 @@ import { windows } from "./reducers/windows";
 let reducers = combineReducers({
     windows,
     sounds,
-    location
+    location,
+    player
 })
 
 let store = createStore(reducers)

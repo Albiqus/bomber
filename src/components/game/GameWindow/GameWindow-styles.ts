@@ -1,8 +1,11 @@
-import styled from "styled-components";
-import concrete from '../../../images/textures/concrete.jpg';
+import styled, { keyframes } from "styled-components";
+import wall from '../../../images/textures/wall.jpg';
 import barrier from '../../../images/textures/barrier.png';
 import portal from '../../../images/textures/portal.gif';
-import player from '../../../images/etity/player.png';
+import playerRight from '../../../images/entity/player-right.png';
+import playerLeft from '../../../images/entity/player-left.png';
+import { PlayerPropsType } from "../../../types/props/PlayerProps";
+import { AnimationCoords } from "../../../types/AnimationCoords";
 
 
 export const Div = styled.div`
@@ -27,7 +30,7 @@ background-color: black;
 export const Wall = styled.div`
 width: 60px;
 height: 60px;
-background-image: url(${concrete});
+background-image: url(${wall});
 `
 
 export const Barrier = styled.div`
@@ -43,6 +46,27 @@ height: 60px;
 background-image: url(${portal});
 `
 
+const moving = (coordinates: AnimationCoords) => keyframes`
+  0% {
+    transform: translate(${coordinates.x}%, ${coordinates.y}%);
+  }
+  100% {
+   transform: translate(0, 0);
+  }
+`
+
+export const Player = styled.div`
+position: absolute;
+width: 60px;
+height: 60px;
+background-image: url(${(props: PlayerPropsType) => props.gazeDirection === 'right' ? playerRight : playerLeft});
+animation: ${(props: PlayerPropsType) => moving(props.coordinates)} 0.175s linear ;
+`
+
 export const Idph = styled.p`
 position: absolute;
+color: white;
+opacity: 0.4;
 `
+
+

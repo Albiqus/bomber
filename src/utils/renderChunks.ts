@@ -1,6 +1,7 @@
 
 import { CHUNKS_AMOUNT, } from "../data/location"
-import { MATTER } from "../data/matter"
+import { LOCATION_MATTER } from "../data/matter"
+import { Chunk } from "../types/Chunk"
 
 
 const createChunks = () => {
@@ -11,9 +12,9 @@ const createChunks = () => {
     return chunks
 }
 
-const fillMatter = (chunks: any, level: string, matter: string) => {
-    const matterIds = MATTER[matter][level]
-    
+const fillMatter = (chunks: Chunk[], level: string, matter: string) => {
+    const matterIds = LOCATION_MATTER[matter][level]
+
     for (let key in chunks) {
         if (matterIds.includes(+key)) {
             chunks[key].type = matter

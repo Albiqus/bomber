@@ -4,10 +4,10 @@ import { Div, InfoButton, P, StartButton, VolumeInput } from "./MenuWindow-style
 import sound from '../../../music/menu.mp3'
 import { RootState } from "../../../store/store"
 import { useDispatch, useSelector } from "react-redux"
-import { setMusicVolume } from "../../../actionCreators/setMusicVolume"
-import { setEffectsVolume } from "../../../actionCreators/setEffectsVolume"
-import { setIsMenuWindow } from "../../../actionCreators/setIsMenuWindow"
-import { setIsGameWindow } from "../../../actionCreators/setIsGameWindow"
+import { setMusicVolume } from "../../../actionCreators/sounds/setMusicVolume"
+import { setEffectsVolume } from "../../../actionCreators/sounds/setEffectsVolume"
+import { setIsMenuWindow } from "../../../actionCreators/windows/setIsMenuWindow"
+import { setIsGameWindow } from "../../../actionCreators/windows/setIsGameWindow"
 
 
 export const MenuWindow = () => {

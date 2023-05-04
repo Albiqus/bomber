@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux/es/exports";
 import { Div, Logo, Prompt } from "./InitialWindow-styles"
-import { setIsInitialWindow } from "../../../actionCreators/setIsInitialWindow";
-import { setIsMenuWindow } from "../../../actionCreators/setIsMenuWindow";
+import { setIsInitialWindow } from "../../../actionCreators/windows/setIsInitialWindow";
+import { setIsMenuWindow } from "../../../actionCreators/windows/setIsMenuWindow";
 
 
 export const InitialWindow = () => {
