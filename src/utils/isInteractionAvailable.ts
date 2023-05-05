@@ -22,9 +22,9 @@ const getStep = (interactionType: string) => {
 }
 
 
-export const isInteractionAvailable = (chunks: Chunk[], playerPosition: number, interactionType: string) => {
+export const isInteractionAvailable = (chunks: Chunk[], playerPosition: number, interactionType: string, bombPos: number | null) => {
     if (interactionType === 'bomb') {
-        return true
+        return bombPos ? false : true
     }
     if (LOCATION_BORDERS[interactionType].includes(playerPosition)) {
         return false

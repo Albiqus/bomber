@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import { Logo } from "./Logo/Logo"
 import { Div, InfoButton, P, StartButton, VolumeInput } from "./MenuWindow-styles"
-import sound from '../../../music/menu.mp3'
+import sound from '../../../sounds/music/menu.mp3'
 import { RootState } from "../../../store/store"
 import { useDispatch, useSelector } from "react-redux"
 import { setMusicVolume } from "../../../actionCreators/sounds/setMusicVolume"
@@ -46,7 +46,7 @@ export const MenuWindow = () => {
             <VolumeInput onChange={onMusicVolumeChange} type="range" min="0" max="100" value={musicVolume} ></VolumeInput>
             <P>громкость эффектов</P>
             <VolumeInput onChange={onEffectsVolumeChange} type="range" min="0" max="100" value={effectsVolume} ></VolumeInput>
-
+            
             <audio src={sound} ref={audio} autoPlay loop muted={false} hidden></audio>
         </Div>
     )

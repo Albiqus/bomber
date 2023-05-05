@@ -4,8 +4,10 @@ import barrier from '../../../images/textures/barrier.png';
 import portal from '../../../images/textures/portal.gif';
 import playerRight from '../../../images/entity/player-right.png';
 import playerLeft from '../../../images/entity/player-left.png';
+import bomb from '../../../images/entity/bomb.png';
 import { PlayerPropsType } from "../../../types/props/PlayerProps";
 import { AnimationCoords } from "../../../types/AnimationCoords";
+import { BombPos } from "../../../types/props/AirProps";
 
 
 export const Div = styled.div`
@@ -21,10 +23,24 @@ width: 60px;
 height: 60px;
 `
 
+const bombAnimation = keyframes`
+  0% {
+    transform: scale(0.7, 0.7);
+  }
+  50%{
+    transform: scale(1, 1);
+  }
+  100% {
+   transform: scale(0.7, 0.7);
+  }
+`
+
 export const Air = styled.div`
 width: 60px;
 height: 60px;
-background-color: black;
+background-color: ${(props: BombPos) => props.bombPos !== props.airPos && 'black'};
+background-image: url(${(props: BombPos) => props.bombPos === props.airPos && bomb});
+animation: ${(props: BombPos) => props.bombPos === props.airPos && bombAnimation} 0.5s infinite;
 `
 
 export const Wall = styled.div`

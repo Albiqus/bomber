@@ -10,7 +10,7 @@ export const usePlayerInteraction = () => {
     const dispatch = useDispatch()
 
     const makePlayerInteraction = (interactionType: string) => {
-        
+
         switch (interactionType) {
             case 'up':
                 dispatch(moveToUp())
