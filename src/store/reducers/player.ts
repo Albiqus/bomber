@@ -1,21 +1,34 @@
-import { MOVE_TO_DOWN, MOVE_TO_LEFT, MOVE_TO_RIGHT, MOVE_TO_UP, RESET_PLAYER_PARAMS, SET_IS_DEATH } from "../../data/actionTypes";
+import { MOVE_TO_DOWN, MOVE_TO_LEFT, MOVE_TO_RIGHT, MOVE_TO_UP, RESET_PLAYER_PARAMS, SET_IS_DEATH, SET_IS_FINISH, SET_PLAYER_POS } from "../../data/actionTypes";
 
 const startState = {
-    playerPos: 113,
+    playerPos: null,
     gazeDirection: 'right',
     animationCoords: {
         x: 0,
         y: 0,
     },
     isDeath: false,
+    isFinish: false
 }
 
 export const player = (state = startState, action: any) => {
     switch (action.type) {
+        case SET_PLAYER_POS: {
+            return {
+                ...state,
+                playerPos: action.payload
+            }
+        }
+        case SET_IS_FINISH: {
+            return {
+                ...state,
+                isFinish: action.payload
+            }
+        }
         case MOVE_TO_UP: {
             return {
                 ...state,
-                playerPos: state.playerPos - 15,
+                playerPos: state.playerPos&& state.playerPos - 15,
                 animationCoords: {
                     x: 0,
                     y: 100,
@@ -25,7 +38,7 @@ export const player = (state = startState, action: any) => {
         case MOVE_TO_RIGHT: {
             return {
                 ...state,
-                playerPos: state.playerPos + 1,
+                playerPos: state.playerPos && state.playerPos + 1,
                 animationCoords: {
                     x: -100,
                     y: 0,
@@ -36,7 +49,7 @@ export const player = (state = startState, action: any) => {
         case MOVE_TO_DOWN: {
             return {
                 ...state,
-                playerPos: state.playerPos + 15,
+                playerPos: state.playerPos && state.playerPos + 15,
                 animationCoords: {
                     x: 0,
                     y: -100,
@@ -46,7 +59,7 @@ export const player = (state = startState, action: any) => {
         case MOVE_TO_LEFT: {
             return {
                 ...state,
-                playerPos: state.playerPos - 1,
+                playerPos: state.playerPos && state.playerPos - 1,
                 animationCoords: {
                     x: 100,
                     y: 0,
@@ -59,7 +72,7 @@ export const player = (state = startState, action: any) => {
                 ...state,
                 isDeath: action.payload
             }
-        } 
+        }
         case RESET_PLAYER_PARAMS: {
             return {
                 ...state,
@@ -71,8 +84,9 @@ export const player = (state = startState, action: any) => {
                 },
                 bombPos: null,
                 isDeath: false,
+                isFinish: false
             }
-        }      
+        }
         default:
             return state;
     }

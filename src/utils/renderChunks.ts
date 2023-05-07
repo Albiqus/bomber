@@ -29,6 +29,5 @@ export const renderChunks = (level: number) => {
     let chunks = createChunks()
     chunks = fillMatter(chunks, level, 'wall')
     chunks = fillMatter(chunks, level, 'barrier')
-    chunks = fillMatter(chunks, level, 'portal')
     return chunks
 }

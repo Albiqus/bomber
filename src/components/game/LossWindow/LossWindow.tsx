@@ -37,7 +37,6 @@ export const LossWindow = () => {
 
     return (
         <Div>
-            
             <Title>Вы проиграли</Title>
             <StartButton onClick={onStartButtonClick}>заново</StartButton>
             <MenuButton onClick={onMenuButtonClick}>меню</MenuButton>

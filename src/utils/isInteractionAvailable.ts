@@ -22,7 +22,10 @@ const getStep = (interactionType: string) => {
 }
 
 
-export const isInteractionAvailable = (chunks: Chunk[], playerPosition: number, interactionType: string, bombPos: number | null, isDeath: boolean) => {
+export const isInteractionAvailable = (chunks: Chunk[], playerPosition: number, interactionType: string, bombPos: number | null, isDeath: boolean, isFinish: boolean) => {
+    if (isFinish) {
+        return false
+    }
     if (isDeath) {
         return false
     }

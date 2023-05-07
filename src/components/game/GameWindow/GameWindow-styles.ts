@@ -60,6 +60,7 @@ export const Portal = styled.div`
 width: 60px;
 height: 60px;
 background-image: url(${portal});
+color: red
 `
 
 const moving = (coordinates: AnimationCoords) => keyframes`
@@ -72,11 +73,23 @@ const moving = (coordinates: AnimationCoords) => keyframes`
 `
 
 const death = keyframes`
- 0% {
+    0% {
         transform:rotate(0deg);
     }
     100% {
         transform:rotate(360deg);
+    }
+`
+
+const finish = keyframes`
+    0% {
+
+    }
+    20%{
+        transform: scale(1.4);
+    }
+    100% {
+        transform: scale(0);
     }
 `
 
@@ -95,6 +108,15 @@ height: 60px;
 background-image: url(${(props: PlayerPropsType) => props.gazeDirection === 'right' ? playerRight : playerLeft});
 animation: ${death} 1s infinite linear;
 `
+
+export const FinishingPlayer = styled.div`
+position: absolute;
+width: 60px;
+height: 60px;
+background-image: url(${(props: PlayerPropsType) => props.gazeDirection === 'right' ? playerRight : playerLeft});
+animation: ${finish} 1s forwards linear;
+`
+
 
 export const Idph = styled.p`
 position: absolute;
