@@ -1,21 +1,23 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
-import { Air, Barrier, Chunk, Div, Idph, Player, Portal, Wall } from "./GameWindow-styles"
+import { Air, Barrier, Chunk, DeathPlayer, Div, Idph, Player, Portal, Wall } from "./GameWindow-styles"
 import React, { useEffect, useState } from "react";
 import { usePlayerInteraction } from "../../../hooks/usePlayerAction";
 import { getInteractionType } from "../../../utils/getInteractionType";
 import { isInteractionAvailable } from "../../../utils/isInteractionAvailable";
 import { useExplosion } from "../../../hooks/useExplosion";
 import { EffectSounds } from "./EffectSounds/EffectSounds";
+import { useDeath } from "../../../hooks/useDeath";
 
 
 export const GameWindow = () => {
 
-    const { chunks } = useSelector((state: RootState) => state.location);
-    const { playerPos, animationCoords, gazeDirection, bombPos } = useSelector((state: RootState) => state.player)
+    const { chunks, explodedChunkIds, bombPos } = useSelector((state: RootState) => state.location);
+    const { playerPos, animationCoords, gazeDirection, isDeath } = useSelector((state: RootState) => state.player)
 
     const [currentPressedKey, setCurrentPressedKey] = useState(null)
 
+    const makeDeath = useDeath()
     const makePlayerInteraction = usePlayerInteraction()
     const makeExplosion = useExplosion()
 
@@ -27,7 +29,7 @@ export const GameWindow = () => {
         if (!interactionType) {
             return
         }
-        if (!isInteractionAvailable(chunks, playerPos, interactionType, bombPos)) {
+        if (!isInteractionAvailable(chunks, playerPos, interactionType, bombPos, isDeath)) {
             return
         }
         setCurrentPressedKey(e.keyCode)
@@ -43,7 +45,7 @@ export const GameWindow = () => {
             makeExplosion(chunks, bombPos)
         }
     }, [bombPos])
-
+    
     useEffect(() => {
         window.addEventListener('keydown', onGameKeyDown)
         window.addEventListener('keyup', onGameKeyUp)
@@ -51,14 +53,20 @@ export const GameWindow = () => {
             window.removeEventListener('keydown', onGameKeyDown)
             window.removeEventListener('keyup', onGameKeyDown)
         }
-    }, [playerPos, currentPressedKey, bombPos])
+    }, [playerPos, currentPressedKey, bombPos, chunks, isDeath])
 
+    useEffect(() => {
+        if (explodedChunkIds?.includes(playerPos)) {
+            makeDeath()
+        }
+    }, [explodedChunkIds])
 
     const chunkItems = Object.entries(chunks).map(el => el[1]).map((chunk: any) => {
         return (
             <Chunk key={chunk.id}>
                 <Idph> {chunk.id}</Idph>
-                {chunk.id === playerPos && <Player coordinates={animationCoords} gazeDirection={gazeDirection} />}
+                {chunk.id === playerPos && !isDeath &&<Player coordinates={animationCoords} gazeDirection={gazeDirection} isDeath={isDeath} />}
+                {chunk.id === playerPos && isDeath && <DeathPlayer coordinates={animationCoords} gazeDirection={gazeDirection} isDeath={isDeath} />}
                 {chunk.type === 'air' && <Air bombPos={bombPos} airPos={chunk.id} />}
                 {chunk.type === 'wall' && <Wall />}
                 {chunk.type === 'barrier' && <Barrier />}
@@ -66,7 +74,7 @@ export const GameWindow = () => {
             </Chunk>
         )
     })
-    
+
     return (
         <Div>
             {chunkItems}

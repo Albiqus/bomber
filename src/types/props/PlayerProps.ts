@@ -1,4 +1,5 @@
 export interface PlayerPropsType {
-    coordinates: any,
+    coordinates: any;
     gazeDirection: string;
+    isDeath: boolean;
 }

@@ -12,7 +12,7 @@ const createChunks = () => {
     return chunks
 }
 
-const fillMatter = (chunks: Chunk[], level: string, matter: string) => {
+const fillMatter = (chunks: Chunk[], level: number, matter: string) => {
     const matterIds = LOCATION_MATTER[matter][level]
 
     for (let key in chunks) {
@@ -25,7 +25,7 @@ const fillMatter = (chunks: Chunk[], level: string, matter: string) => {
 }
 
 
-export const renderChunks = (level: string) => {
+export const renderChunks = (level: number) => {
     let chunks = createChunks()
     chunks = fillMatter(chunks, level, 'wall')
     chunks = fillMatter(chunks, level, 'barrier')

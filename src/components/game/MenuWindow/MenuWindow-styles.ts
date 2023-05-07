@@ -30,7 +30,7 @@ export const StartButton = styled.button`
     height: 150px;
     color: white;
     border: 5px solid white;
-    background-color: black;
+      background-color: rgba(0,0,0,0.5);
 &:hover {
     cursor: pointer;
     transform: scale(1.1);
@@ -44,7 +44,7 @@ export const InfoButton = styled.button`
     height: 150px;
     color: white;
     border: 5px solid white;
-    background-color: black;
+      background-color: rgba(0,0,0,0.5);
     margin-top: 30px;
 &:hover {
     cursor: pointer;

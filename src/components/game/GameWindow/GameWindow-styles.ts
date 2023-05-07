@@ -71,12 +71,29 @@ const moving = (coordinates: AnimationCoords) => keyframes`
   }
 `
 
+const death = keyframes`
+ 0% {
+        transform:rotate(0deg);
+    }
+    100% {
+        transform:rotate(360deg);
+    }
+`
+
 export const Player = styled.div`
 position: absolute;
 width: 60px;
 height: 60px;
 background-image: url(${(props: PlayerPropsType) => props.gazeDirection === 'right' ? playerRight : playerLeft});
-animation: ${(props: PlayerPropsType) => moving(props.coordinates)} 0.175s linear ;
+animation: ${(props: PlayerPropsType) => moving(props.coordinates)} 0.175s linear;
+`
+
+export const DeathPlayer = styled.div`
+position: absolute;
+width: 60px;
+height: 60px;
+background-image: url(${(props: PlayerPropsType) => props.gazeDirection === 'right' ? playerRight : playerLeft});
+animation: ${death} 1s infinite linear;
 `
 
 export const Idph = styled.p`

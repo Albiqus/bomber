@@ -12,7 +12,7 @@ const getStep = (interactionType: string) => {
             step = 1
             break
         case 'down':
-            step = +15
+            step = 15
             break
         case 'left':
             step = -1
@@ -22,7 +22,10 @@ const getStep = (interactionType: string) => {
 }
 
 
-export const isInteractionAvailable = (chunks: Chunk[], playerPosition: number, interactionType: string, bombPos: number | null) => {
+export const isInteractionAvailable = (chunks: Chunk[], playerPosition: number, interactionType: string, bombPos: number | null, isDeath: boolean) => {
+    if (isDeath) {
+        return false
+    }
     if (interactionType === 'bomb') {
         return bombPos ? false : true
     }

@@ -1,11 +1,13 @@
-import { SET_ARSON_SOUND, SET_EFFECTS_VOLUME, SET_EXPLOSION_SOUND, SET_MUSIC_VOLUME } from "../../data/actionTypes";
+import { SET_ARSON_SOUND, SET_EFFECTS_VOLUME, SET_EXPLOSION_SOUND, SET_MUSIC_VOLUME, SET_PLAYER_DEATH_SOUND } from "../../data/actionTypes";
 
 
 const startState = {
     musicVolume: 50,
     effectsVolume: 100,
+
     arsonSound: false,
     explosionSound: false,
+    playerDeathSound: false,
 }
 
 export const sounds = (state = startState, action: any) => {
@@ -32,6 +34,12 @@ export const sounds = (state = startState, action: any) => {
             return {
                 ...state,
                 explosionSound: action.payload
+            }
+        }
+        case SET_PLAYER_DEATH_SOUND: {
+            return {
+                ...state,
+                playerDeathSound: action.payload
             }
         }
         default:

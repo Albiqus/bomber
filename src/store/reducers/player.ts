@@ -1,4 +1,4 @@
-import { MOVE_TO_DOWN, MOVE_TO_LEFT, MOVE_TO_RIGHT, MOVE_TO_UP, RESET_BOMB, THROW_BOMB } from "../../data/actionTypes";
+import { MOVE_TO_DOWN, MOVE_TO_LEFT, MOVE_TO_RIGHT, MOVE_TO_UP, RESET_PLAYER_PARAMS, SET_IS_DEATH } from "../../data/actionTypes";
 
 const startState = {
     playerPos: 113,
@@ -7,7 +7,7 @@ const startState = {
         x: 0,
         y: 0,
     },
-    bombPos: null,
+    isDeath: false,
 }
 
 export const player = (state = startState, action: any) => {
@@ -54,18 +54,25 @@ export const player = (state = startState, action: any) => {
                 gazeDirection: 'left',
             }
         }
-        case THROW_BOMB: {
+        case SET_IS_DEATH: {
             return {
                 ...state,
-                bombPos: state.playerPos
+                isDeath: action.payload
             }
-        }
-        case RESET_BOMB: {
+        } 
+        case RESET_PLAYER_PARAMS: {
             return {
                 ...state,
-                bombPos: null
+                playerPos: 113,
+                gazeDirection: 'right',
+                animationCoords: {
+                    x: 0,
+                    y: 0,
+                },
+                bombPos: null,
+                isDeath: false,
             }
-        }
+        }      
         default:
             return state;
     }
