@@ -1,6 +1,5 @@
 
-import { CHUNKS_AMOUNT, } from "../data/location"
-import { LOCATION_MATTER } from "../data/matter"
+import { CHUNKS_AMOUNT, LOCATION_MATTER, } from "../data/location"
 import { Chunk } from "../types/Chunk"
 
 

@@ -16,6 +16,7 @@ export const useExplosion = () => {
         dispatch(setArsonSound(true))
 
         const destroyedChunkIds = getDestroyedChunkIds(bombPos)
+        
         const newChunks = getChunksAfterExplosion(currentChunks, destroyedChunkIds)
         
         setTimeout(() => {

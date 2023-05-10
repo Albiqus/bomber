@@ -5,9 +5,12 @@ import portal from '../../../images/textures/portal.gif';
 import playerRight from '../../../images/entity/player-right.png';
 import playerLeft from '../../../images/entity/player-left.png';
 import bomb from '../../../images/entity/bomb.png';
+import waller from '../../../images/entity/waller.png';
+import electricity from '../../../images/entity/electricity.gif'
 import { PlayerPropsType } from "../../../types/props/PlayerProps";
-import { AnimationCoords } from "../../../types/AnimationCoords";
+import { AnimCoords } from "../../../types/AnimCoords";
 import { BombPos } from "../../../types/props/AirProps";
+import { WallerProps } from "../../../types/props/WallerProps";
 
 
 export const Div = styled.div`
@@ -63,9 +66,9 @@ background-image: url(${portal});
 color: red
 `
 
-const moving = (coordinates: AnimationCoords) => keyframes`
+const moving = (animCoords: AnimCoords) => keyframes`
   0% {
-    transform: translate(${coordinates.x}%, ${coordinates.y}%);
+    transform: translate(${animCoords.x}%, ${animCoords.y}%);
   }
   100% {
    transform: translate(0, 0);
@@ -98,7 +101,7 @@ position: absolute;
 width: 60px;
 height: 60px;
 background-image: url(${(props: PlayerPropsType) => props.gazeDirection === 'right' ? playerRight : playerLeft});
-animation: ${(props: PlayerPropsType) => moving(props.coordinates)} 0.175s linear;
+animation: ${(props: PlayerPropsType) => moving(props.animCoords)} 0.175s linear;
 `
 
 export const DeathPlayer = styled.div`
@@ -117,6 +120,22 @@ background-image: url(${(props: PlayerPropsType) => props.gazeDirection === 'rig
 animation: ${finish} 1s forwards linear;
 `
 
+const wallerMoving = (animCoords: AnimCoords) => keyframes`
+  0% {
+    transform: translate(${animCoords.x}%, ${animCoords.y}%);
+  }
+  100% {
+   transform: translate(0, 0);
+  }
+`
+
+export const Waller = styled.div`
+position: absolute;
+width: 60px;
+height: 60px;
+background-image: url(${waller});
+animation: ${(props: WallerProps) => wallerMoving(props.animCoords)} 0.5s linear;
+`
 
 export const Idph = styled.p`
 position: absolute;
@@ -124,4 +143,11 @@ color: white;
 opacity: 0.4;
 `
 
-
+export const Electricity = styled.div`
+position: absolute;
+right: -5px;
+bottom: -5px;
+width: 70px;
+height: 70px;
+background-image: url(${electricity});
+`

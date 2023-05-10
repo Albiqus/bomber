@@ -1,4 +1,4 @@
-import { LOCATION_BORDERS } from "../data/locationBorders"
+import { LOCATION_BORDERS } from "../data/location";
 import { Chunk } from "../types/Chunk";
 
 

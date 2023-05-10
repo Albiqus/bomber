@@ -9,6 +9,7 @@ import { setEffectsVolume } from "../../../actionCreators/sounds/setEffectsVolum
 import { setIsMenuWindow } from "../../../actionCreators/windows/setIsMenuWindow"
 import { setIsGameWindow } from "../../../actionCreators/windows/setIsGameWindow"
 import { useRenderLocation } from "../../../hooks/useSetLocation"
+import { useResetParams } from "../../../hooks/useResetParams"
 
 
 export const MenuWindow = () => {
@@ -17,6 +18,7 @@ export const MenuWindow = () => {
     const renderLocation = useRenderLocation()
     const { musicVolume, effectsVolume } = useSelector((state: RootState) => state.sounds);
     const { currentLevel } = useSelector((state: RootState) => state.location);
+    const resetParams = useResetParams()
 
     const onMusicVolumeChange = (e: any) => {
         dispatch(setMusicVolume(e.target.value))
@@ -25,6 +27,7 @@ export const MenuWindow = () => {
         dispatch(setEffectsVolume(e.target.value))
     }
     const onStartButtonClick = () => {
+        resetParams()
         renderLocation(currentLevel)
         dispatch(setIsMenuWindow(false))
         dispatch(setIsGameWindow(true))

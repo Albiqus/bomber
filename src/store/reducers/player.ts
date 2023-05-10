@@ -3,7 +3,7 @@ import { MOVE_TO_DOWN, MOVE_TO_LEFT, MOVE_TO_RIGHT, MOVE_TO_UP, RESET_PLAYER_PAR
 const startState = {
     playerPos: null,
     gazeDirection: 'right',
-    animationCoords: {
+    animCoords: {
         x: 0,
         y: 0,
     },
@@ -29,7 +29,7 @@ export const player = (state = startState, action: any) => {
             return {
                 ...state,
                 playerPos: state.playerPos&& state.playerPos - 15,
-                animationCoords: {
+                animCoords: {
                     x: 0,
                     y: 100,
                 }
@@ -39,7 +39,7 @@ export const player = (state = startState, action: any) => {
             return {
                 ...state,
                 playerPos: state.playerPos && state.playerPos + 1,
-                animationCoords: {
+                animCoords: {
                     x: -100,
                     y: 0,
                 },
@@ -50,7 +50,7 @@ export const player = (state = startState, action: any) => {
             return {
                 ...state,
                 playerPos: state.playerPos && state.playerPos + 15,
-                animationCoords: {
+                animCoords: {
                     x: 0,
                     y: -100,
                 }
@@ -60,7 +60,7 @@ export const player = (state = startState, action: any) => {
             return {
                 ...state,
                 playerPos: state.playerPos && state.playerPos - 1,
-                animationCoords: {
+                animCoords: {
                     x: 100,
                     y: 0,
                 },
@@ -78,7 +78,7 @@ export const player = (state = startState, action: any) => {
                 ...state,
                 playerPos: 113,
                 gazeDirection: 'right',
-                animationCoords: {
+                animCoords: {
                     x: 0,
                     y: 0,
                 },

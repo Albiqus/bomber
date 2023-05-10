@@ -3,12 +3,12 @@ import { setIsDeath } from "../actionCreators/player/setIsDeath"
 import { setPlayerDeathSound } from "../actionCreators/sounds/setDeathSound"
 import { setIsLossWindow } from "../actionCreators/windows/setIsLossWindow"
 import { setIsGameWindow } from "../actionCreators/windows/setIsGameWindow"
-import { resetPLayerParams } from "../actionCreators/player/resetPlayerParams"
-import { resetLocationParams } from "../actionCreators/location/resetLocationParams"
+import { useResetParams } from "./useResetParams"
 
 
 export const useDeath = () => {
     const dispatch = useDispatch()
+    const resetParams = useResetParams()
 
     const makeDeath = () => {
         dispatch(setIsDeath(true))
@@ -17,8 +17,8 @@ export const useDeath = () => {
         setTimeout(() => {
             dispatch(setIsGameWindow(false))
             dispatch(setIsLossWindow(true))
-            dispatch(resetPLayerParams())
-            dispatch(resetLocationParams())
+
+            resetParams()
         }, 2000);
 
     }

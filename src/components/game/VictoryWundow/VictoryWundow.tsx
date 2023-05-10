@@ -7,6 +7,7 @@ import { useRenderLocation } from "../../../hooks/useSetLocation";
 import { setIsGameWindow } from "../../../actionCreators/windows/setIsGameWindow";
 import { setIsVictoryWindow } from "../../../actionCreators/windows/setIsVictoryWindow";
 import { setIsMenuWindow } from "../../../actionCreators/windows/setIsMenuWindow";
+import { useResetParams } from "../../../hooks/useResetParams";
 
 
 export const VictoryWindow = () => {
@@ -16,6 +17,7 @@ export const VictoryWindow = () => {
 
     const { musicVolume } = useSelector((state: RootState) => state.sounds);
     const { currentLevel } = useSelector((state: RootState) => state.location);
+    const resetParams = useResetParams()
 
 
     const audio = React.useRef<HTMLAudioElement>(null)
@@ -27,6 +29,7 @@ export const VictoryWindow = () => {
 
 
     const onStartButtonClick = () => {
+        resetParams()
         renderLocation(currentLevel)
         dispatch(setIsVictoryWindow(false))
         dispatch(setIsGameWindow(true))

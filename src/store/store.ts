@@ -1,3 +1,4 @@
+import { waller } from './reducers/waller';
 import { player } from './reducers/player';
 import { location } from './reducers/location';
 import { sounds } from './reducers/sounds';
@@ -9,7 +10,8 @@ let reducers = combineReducers({
     windows,
     sounds,
     location,
-    player
+    player,
+    waller
 })
 
 let store = createStore(reducers)
