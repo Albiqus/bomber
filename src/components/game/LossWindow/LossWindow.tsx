@@ -7,6 +7,7 @@ import { useRenderLocation } from "../../../hooks/useSetLocation";
 import { setIsLossWindow } from "../../../actionCreators/windows/setIsLossWindow";
 import { setIsGameWindow } from "../../../actionCreators/windows/setIsGameWindow";
 import { setIsMenuWindow } from "../../../actionCreators/windows/setIsMenuWindow";
+import { useResetParams } from "../../../hooks/useResetParams";
 
 
 export const LossWindow = () => {
@@ -14,7 +15,9 @@ export const LossWindow = () => {
     const dispatch = useDispatch()
     const { musicVolume } = useSelector((state: RootState) => state.sounds);
     const { currentLevel } = useSelector((state: RootState) => state.location);
+
     const renderLocation = useRenderLocation()
+    const resetParams = useResetParams()
 
     const audio = React.useRef<HTMLAudioElement>(null)
     useEffect(() => {
@@ -24,6 +27,7 @@ export const LossWindow = () => {
     }, [musicVolume])
 
     const onStartButtonClick = () => {
+        resetParams()
         renderLocation(currentLevel)
         dispatch(setIsLossWindow(false))
         dispatch(setIsGameWindow(true))
@@ -34,7 +38,8 @@ export const LossWindow = () => {
         dispatch(setIsMenuWindow(true))
     }
 
-
+    const { wallers, wallerChunkIds } = useSelector((state: RootState) => state.waller)
+   
     return (
         <Div>
             <Title>Вы проиграли</Title>

@@ -13,7 +13,7 @@ export const useRenderLocation = () => {
 
     const renderLocation = (level: number) => {
         const chunks = renderChunks(level)
-       
+        
         const playerPos = PLAYER_POSITIONS[level]
         const portalPos = PORTAL_POSITIONS[level]
         const wallers = WALLERS_DATA[level]?.map(el => ({

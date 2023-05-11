@@ -22,7 +22,7 @@ export const GameWindow = () => {
     const { wallers, wallerChunkIds } = useSelector((state: RootState) => state.waller)
 
     const [currentPressedKey, setCurrentPressedKey] = useState(null)
-  
+
     const makeDeath = useDeath()
     const makePlayerInteraction = usePlayerInteraction()
     const makeExplosion = useExplosion()
@@ -64,7 +64,7 @@ export const GameWindow = () => {
     }, [playerPos, currentPressedKey, bombPos, chunks, isDeath, isFinish])
 
     useEffect(() => {
-        if (explodedChunkIds?.includes(playerPos) && !isDeath) {
+        if (explodedChunkIds?.includes(playerPos) && !isDeath && !isFinish) {
             makeDeath()
         }
     }, [explodedChunkIds])
@@ -88,7 +88,8 @@ export const GameWindow = () => {
             makeDeath()
         }
     }, [wallerChunkIds, playerPos])
-    
+
+
     const chunkItems = Object.entries(chunks).map(el => el[1]).map((chunk: any) => {
         return (
             <Chunk key={chunk.id}>

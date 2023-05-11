@@ -2,7 +2,7 @@ import { RESET_BOMB, RESET_LOCATION_PARAMS, SET_EXPLODED_CHUNK_IDS, SET_LOCATION
 
 
 const startState = {
-    currentLevel: 1,
+    currentLevel: 2,
     chunks: null,
     explodedChunkIds: null,
     bombPos: null,
