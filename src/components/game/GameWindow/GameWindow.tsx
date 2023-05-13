@@ -102,7 +102,7 @@ export const GameWindow = () => {
                     <Waller animCoords={wallers.find((el: WallerType) => el.id === chunk.id).animCoords} >
                         <Electricity />
                     </Waller>}
-                {chunk.type === 'air' && <Air bombPos={bombPos} airPos={chunk.id} />}
+                {chunk.type === 'air' && chunk.id !== portalPos && <Air bombPos={bombPos} airPos={chunk.id} />}
                 {chunk.type === 'wall' && <Wall />}
                 {chunk.type === 'barrier' && <Barrier />}
             </Chunk>

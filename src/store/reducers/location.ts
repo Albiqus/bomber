@@ -1,8 +1,8 @@
-import { RESET_BOMB, RESET_LOCATION_PARAMS, SET_EXPLODED_CHUNK_IDS, SET_LOCATION, SET_NEXT_LEVEL, SET_PORTAL_POS, THROW_BOMB } from "../../data/actionTypes";
+import { RESET_BOMB, RESET_LOCATION_PARAMS, SET_EXPLODED_CHUNK_IDS, SET_LOCATION, SET_LEVEL, SET_PORTAL_POS, THROW_BOMB } from "../../data/actionTypes";
 
 
 const startState = {
-    currentLevel: 2,
+    currentLevel: null,
     chunks: null,
     explodedChunkIds: null,
     bombPos: null,
@@ -11,11 +11,10 @@ const startState = {
 
 export const location = (state = startState, action: any) => {
     switch (action.type) {
-        case SET_NEXT_LEVEL: {
+        case SET_LEVEL: {
             return {
                 ...state,
-                currentLevel: state.currentLevel + 1
-
+                currentLevel: action.payload
             }
         }
         case SET_LOCATION: {

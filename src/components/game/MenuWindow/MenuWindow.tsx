@@ -1,39 +1,18 @@
 import React, { useEffect } from "react"
-import { Logo } from "./Logo/Logo"
-import { Div, InfoButton, P, StartButton, VolumeInput } from "./MenuWindow-styles"
+import { Div, } from "./MenuWindow-styles"
 import sound from '../../../sounds/music/menu.mp3'
 import { RootState } from "../../../store/store"
-import { useDispatch, useSelector } from "react-redux"
-import { setMusicVolume } from "../../../actionCreators/sounds/setMusicVolume"
-import { setEffectsVolume } from "../../../actionCreators/sounds/setEffectsVolume"
-import { setIsMenuWindow } from "../../../actionCreators/windows/setIsMenuWindow"
-import { setIsGameWindow } from "../../../actionCreators/windows/setIsGameWindow"
-import { useRenderLocation } from "../../../hooks/useSetLocation"
-import { useResetParams } from "../../../hooks/useResetParams"
+import { useSelector } from "react-redux"
+import { MainMenu } from "./MainMenu/MainMenu"
+import { LevelsMenu } from "./LevelsMenu/LevelsMenu"
 
 
 export const MenuWindow = () => {
 
-    const dispatch = useDispatch()
-    const renderLocation = useRenderLocation()
-    const { musicVolume, effectsVolume } = useSelector((state: RootState) => state.sounds);
-    const { currentLevel } = useSelector((state: RootState) => state.location);
-    const resetParams = useResetParams()
+    const { musicVolume } = useSelector((state: RootState) => state.sounds);
+    const { isLevelsWindow } = useSelector((state: RootState) => state.windows);
 
-    const onMusicVolumeChange = (e: any) => {
-        dispatch(setMusicVolume(e.target.value))
-    }
-    const onEffectsVolumeChange = (e: any) => {
-        dispatch(setEffectsVolume(e.target.value))
-    }
-    const onStartButtonClick = () => {
-        resetParams()
-        renderLocation(currentLevel)
-        dispatch(setIsMenuWindow(false))
-        dispatch(setIsGameWindow(true))
-    }
-
-
+    
     const audio = React.useRef<HTMLAudioElement>(null)
     useEffect(() => {
         if (audio.current) {
@@ -44,15 +23,8 @@ export const MenuWindow = () => {
 
     return (
         <Div>
-            <Logo />
-            <StartButton onClick={onStartButtonClick}>старт</StartButton>
-            <InfoButton>об игре</InfoButton>
-
-            <P>громкость музыки</P>
-            <VolumeInput onChange={onMusicVolumeChange} type="range" min="0" max="100" value={musicVolume} ></VolumeInput>
-            <P>громкость эффектов</P>
-            <VolumeInput onChange={onEffectsVolumeChange} type="range" min="0" max="100" value={effectsVolume} ></VolumeInput>
-            
+            {!isLevelsWindow && <MainMenu />}
+            {isLevelsWindow && <LevelsMenu />}
             <audio src={sound} ref={audio} autoPlay loop muted={false} hidden></audio>
         </Div>
     )

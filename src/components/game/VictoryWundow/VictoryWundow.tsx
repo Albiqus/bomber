@@ -3,7 +3,7 @@ import { Div, MenuButton, Player, StartButton, Title } from "./VictoryWundow-sty
 import React, { useEffect } from "react"
 import { RootState } from "../../../store/store";
 import sound from '../../../sounds/music/victory.mp3'
-import { useRenderLocation } from "../../../hooks/useSetLocation";
+import { useRenderLocation } from "../../../hooks/useRenderLocation";
 import { setIsGameWindow } from "../../../actionCreators/windows/setIsGameWindow";
 import { setIsVictoryWindow } from "../../../actionCreators/windows/setIsVictoryWindow";
 import { setIsMenuWindow } from "../../../actionCreators/windows/setIsMenuWindow";
@@ -26,7 +26,6 @@ export const VictoryWindow = () => {
             audio.current.volume = musicVolume / 100
         }
     }, [musicVolume])
-
 
     const onStartButtonClick = () => {
         resetParams()

@@ -1,4 +1,4 @@
-import { SET_IS_GAME_WINDOW, SET_IS_INITIAL_WINDOW, SET_IS_LOSS_WINDOW, SET_IS_MENU_WINDOW, SET_IS_VICTORY_WINDOW } from "../../data/actionTypes";
+import { SET_IS_GAME_WINDOW, SET_IS_INITIAL_WINDOW, SET_IS_LEVELS_WINDOW, SET_IS_LOSS_WINDOW, SET_IS_MENU_WINDOW, SET_IS_VICTORY_WINDOW } from "../../data/actionTypes";
 
 
 const startState = {
@@ -7,6 +7,7 @@ const startState = {
     isGameWindow: false,
     isLossWindow: false,
     isVictoryWindow: false,
+    isLevelsWindow: false,
 }
 
 export const windows = (state = startState, action: any) => {
@@ -39,6 +40,12 @@ export const windows = (state = startState, action: any) => {
             return {
                 ...state,
                 isVictoryWindow: action.payload
+            }
+        } 
+        case SET_IS_LEVELS_WINDOW: {
+            return {
+                ...state,
+                isLevelsWindow: action.payload
             }
         } 
         default:

@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
-import player from '../../../images/background/player-loss.png'
-import wallpaper from '../../../images/background/menu.gif'
+import player from '../../../images/wallpapers/player-loss.png'
+import wallpaper from '../../../images/wallpapers/menu.gif'
 
 
 export const Div = styled.div`

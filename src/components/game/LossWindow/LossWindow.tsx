@@ -3,7 +3,7 @@ import sound from '../../../sounds/music/loss.mp3'
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
 import { Div, MenuButton, Player, StartButton, Title } from "./LossWindow-styles";
-import { useRenderLocation } from "../../../hooks/useSetLocation";
+import { useRenderLocation } from "../../../hooks/useRenderLocation";
 import { setIsLossWindow } from "../../../actionCreators/windows/setIsLossWindow";
 import { setIsGameWindow } from "../../../actionCreators/windows/setIsGameWindow";
 import { setIsMenuWindow } from "../../../actionCreators/windows/setIsMenuWindow";
@@ -37,8 +37,6 @@ export const LossWindow = () => {
         dispatch(setIsLossWindow(false))
         dispatch(setIsMenuWindow(true))
     }
-
-    const { wallers, wallerChunkIds } = useSelector((state: RootState) => state.waller)
    
     return (
         <Div>

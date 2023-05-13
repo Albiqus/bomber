@@ -63,7 +63,6 @@ export const Portal = styled.div`
 width: 60px;
 height: 60px;
 background-image: url(${portal});
-color: red
 `
 
 const moving = (animCoords: AnimCoords) => keyframes`
