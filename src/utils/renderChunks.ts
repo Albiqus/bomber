@@ -13,7 +13,7 @@ const createChunks = () => {
 
 const fillMatter = (chunks: Chunk[], level: number, matter: string) => {
     const matterIds = LOCATION_MATTER[matter][level]
-   
+ 
     for (let key in chunks) {
         if (matterIds.includes(+key)) {
             chunks[key].type = matter

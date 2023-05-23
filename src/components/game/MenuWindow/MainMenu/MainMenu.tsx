@@ -5,6 +5,7 @@ import { setMusicVolume } from "../../../../actionCreators/sounds/setMusicVolume
 import { setEffectsVolume } from "../../../../actionCreators/sounds/setEffectsVolume"
 import { RootState } from "../../../../store/store"
 import { setIsLevelsWindow } from "../../../../actionCreators/windows/setIsLevelsWindow"
+import { setIsInfoWindow } from "../../../../actionCreators/windows/setIsInfoWindow"
 
 
 export const MainMenu = () => {
@@ -15,6 +16,9 @@ export const MainMenu = () => {
 
     const onPlayButtonClick = () => {
         dispatch(setIsLevelsWindow(true))
+    }
+    const onInfoButtonClick = () => {
+        dispatch(setIsInfoWindow(true))
     }
     const onMusicVolumeChange = (e: any) => {
         dispatch(setMusicVolume(e.target.value))
@@ -27,7 +31,7 @@ export const MainMenu = () => {
         <Div>
             <Logo />
             <StartButton onClick={onPlayButtonClick}>играть</StartButton>
-            <InfoButton>об игре</InfoButton>
+            <InfoButton onClick={onInfoButtonClick}>об игре</InfoButton>
 
             <P>громкость музыки</P>
             <VolumeInput onChange={onMusicVolumeChange} type="range" min="0" max="100" value={musicVolume} ></VolumeInput>

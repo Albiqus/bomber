@@ -6,11 +6,12 @@ import { MenuWindow } from "./MenuWindow/MenuWindow";
 import { GameWindow } from "./GameWindow/GameWindow";
 import { LossWindow } from "./LossWindow/LossWindow";
 import { VictoryWindow } from "./VictoryWundow/VictoryWundow";
+import { EndingWindow } from "./EndingWindow/EndingWindow";
 
 
 export const Game = () => {
 
-    const { isInitialWindow, isMenuWindow, isGameWindow, isLossWindow, isVictoryWindow } = useSelector((state: RootState) => state.windows);
+    const { isInitialWindow, isMenuWindow, isGameWindow, isLossWindow, isVictoryWindow, isEndingWindow } = useSelector((state: RootState) => state.windows);
 
     return (
         <Div>
@@ -19,6 +20,7 @@ export const Game = () => {
             {isGameWindow && <GameWindow />}
             {isLossWindow && <LossWindow />}
             {isVictoryWindow && <VictoryWindow />}
+            {isEndingWindow && <EndingWindow />}
         </Div>
     )
 }

@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import wall from '../../../images/textures/wall.jpg';
+import wall from '../../../images/textures/wall.png';
 import barrier from '../../../images/textures/barrier.png';
 import portal from '../../../images/textures/portal.gif';
 import playerRight from '../../../images/entity/player-right.png';

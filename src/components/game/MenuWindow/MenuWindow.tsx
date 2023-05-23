@@ -5,12 +5,13 @@ import { RootState } from "../../../store/store"
 import { useSelector } from "react-redux"
 import { MainMenu } from "./MainMenu/MainMenu"
 import { LevelsMenu } from "./LevelsMenu/LevelsMenu"
+import { InfoMenu } from "./InfoMenu/InfoMenu"
 
 
 export const MenuWindow = () => {
 
     const { musicVolume } = useSelector((state: RootState) => state.sounds);
-    const { isLevelsWindow } = useSelector((state: RootState) => state.windows);
+    const { isLevelsWindow, isInfoWindow } = useSelector((state: RootState) => state.windows);
 
     
     const audio = React.useRef<HTMLAudioElement>(null)
@@ -23,8 +24,9 @@ export const MenuWindow = () => {
 
     return (
         <Div>
-            {!isLevelsWindow && <MainMenu />}
+            {!isLevelsWindow && !isInfoWindow &&<MainMenu />}
             {isLevelsWindow && <LevelsMenu />}
+            {isInfoWindow && <InfoMenu />}
             <audio src={sound} ref={audio} autoPlay loop muted={false} hidden></audio>
         </Div>
     )

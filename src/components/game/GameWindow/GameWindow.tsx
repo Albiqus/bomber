@@ -93,7 +93,7 @@ export const GameWindow = () => {
     const chunkItems = Object.entries(chunks).map(el => el[1]).map((chunk: any) => {
         return (
             <Chunk key={chunk.id}>
-                <Idph> {chunk.id}</Idph>
+                {/* <Idph> {chunk.id}</Idph> */}
                 {chunk.id === playerPos && !isDeath && !isFinish && <Player animCoords={animCoords} gazeDirection={gazeDirection} isDeath={isDeath} />}
                 {chunk.id === playerPos && isDeath && <DeathPlayer animCoords={animCoords} gazeDirection={gazeDirection} isDeath={isDeath} />}
                 {chunk.id === playerPos && isFinish && <FinishingPlayer animCoords={animCoords} gazeDirection={gazeDirection} isDeath={isDeath} />}
