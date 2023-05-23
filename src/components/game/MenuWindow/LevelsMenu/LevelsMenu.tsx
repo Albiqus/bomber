@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux"
-import { BackButton, Div, LevelItem, LevelPrewiew, LevelsWrapper, Lock, P, StartButton } from "./LevelsMenu-styles"
+import { BackButton, Div, LevelItem, LevelPrewiew, LevelsWrapper, Lock, P, SelectedLevel, StartButton } from "./LevelsMenu-styles"
 import { setIsLevelsWindow } from "../../../../actionCreators/windows/setIsLevelsWindow"
 import { getLevels } from "../../../../utils/getLevels"
 import lock from '../../../../images/levels/lock.png'
@@ -57,6 +57,7 @@ export const LevelsMenu = () => {
             <LevelsWrapper>
                 {levelItems}
             </LevelsWrapper>
+            <SelectedLevel>выбран: {levelSelected}</SelectedLevel>
             <StartButton onClick={onStartButtonClick}>играть</StartButton>
         </Div>
     )

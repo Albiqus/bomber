@@ -2,7 +2,7 @@ import { RESET_SOUNDS_PARAMS, SET_ARSON_SOUND, SET_EFFECTS_VOLUME, SET_EXPLOSION
 
 
 const startState = {
-    musicVolume: 50,
+    musicVolume: 35,
     effectsVolume: 100,
 
     arsonSound: false,

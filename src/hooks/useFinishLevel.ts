@@ -22,7 +22,7 @@ export const useFinishLevel = () => {
         let nextLevel = +currentLevel + 1
         let isPassedGame = false;
 
-        if (currentLevel === '10') {
+        if (currentLevel == '10') {
             nextLevel = +currentLevel
             isPassedGame = true
         } 

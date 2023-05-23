@@ -10,11 +10,11 @@ export const Div = styled.div`
     background-color: rgba(0,0,0,0.9);
     display: flex;
     flex-wrap: wrap;
-
 `
 
 
 export const P = styled.p`
+    text-decoration: underline;
     text-align: start;
     margin: 0 auto;
     width: 800px;

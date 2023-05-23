@@ -82,3 +82,14 @@ export const Player = styled.div`
     height: 400px;
     animation: ${animation} 20s forwards linear;
 `
+export const Hint = styled.p`
+   z-index: 2;
+   margin: 0;
+   text-align: center;
+   margin-top: 60px;
+   line-height: 1.5;
+   width: 700px;
+   font-size: 17px;
+   font-family: "gameFont";
+   color: white;
+`

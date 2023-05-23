@@ -14,6 +14,7 @@ import { WallerProps } from "../../../types/props/WallerProps";
 
 
 export const Div = styled.div`
+position: relative;
 height: 900px;
 width: 900px;
 display: flex;
@@ -149,4 +150,15 @@ bottom: -5px;
 width: 70px;
 height: 70px;
 background-image: url(${electricity});
+`
+
+export const Level = styled.p`
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    text-align: center;
+    margin: 0 auto;
+    font-family: "gameFont";
+    font-size: 50px;
+    color: white;
 `

@@ -77,8 +77,8 @@ export const StartButton = styled.button`
     height: 150px;
     color: white;
     border: 5px solid white;
-      background-color: rgba(0,0,0,0.5);
-      margin-top: 50px;
+    background-color: rgba(0,0,0,0.5);
+    margin-top: 40px;
 &:hover {
     cursor: pointer;
     transform: scale(1.1);
@@ -86,5 +86,17 @@ export const StartButton = styled.button`
 `
 
 export const LevelPrewiew = styled.img`
-outline: 3px solid pink
+outline: 3px solid pink;
+`
+
+export const SelectedLevel = styled.p`
+    text-align: center;
+    margin: 0 auto;
+     margin-top: 10px;
+    border-radius: 20px;
+    font-family: "gameFont";
+    font-size: 30px;
+    color: white;
+    padding: 20px 20px 20px 20px;
+    background-color: rgba(0,0,0,0.9);
 `

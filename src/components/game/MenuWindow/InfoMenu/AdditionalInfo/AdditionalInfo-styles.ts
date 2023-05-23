@@ -12,6 +12,7 @@ export const Div = styled.div`
 `
 
 export const P = styled.p`
+    text-decoration: underline;
     text-align: start;
     margin: 0 auto;
     padding-bottom: 50px;
