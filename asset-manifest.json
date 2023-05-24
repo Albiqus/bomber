@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/bomber/static/css/main.429468b7.css",
+    "main.js": "/bomber/static/js/main.3cce8ef4.js",
+    "static/js/787.f8a1d068.chunk.js": "/bomber/static/js/787.f8a1d068.chunk.js",
+    "static/media/menu.mp3": "/bomber/static/media/menu.b2e981bec6345cec53ea.mp3",
+    "static/media/victory.mp3": "/bomber/static/media/victory.1bc72fb7658e2a883207.mp3",
+    "static/media/loss.mp3": "/bomber/static/media/loss.a964eb0aec43cc928323.mp3",
+    "static/media/menu.gif": "/bomber/static/media/menu.539371978d53ef1e5cac.gif",
+    "static/media/game.mp3": "/bomber/static/media/game.2799fcacdc82f163624f.mp3",
+    "static/media/waller-2.mp3": "/bomber/static/media/waller-2.795210ea9f8747f97af4.mp3",
+    "static/media/PressStart2P-Regular.ttf": "/bomber/static/media/PressStart2P-Regular.4bfcf8b92a857ee248e8.ttf",
+    "static/media/bomb-1.mp3": "/bomber/static/media/bomb-1.175c0fbde968ab7d8035.mp3",
+    "static/media/portal.gif": "/bomber/static/media/portal.57579ba573ec89b04748.gif",
+    "static/media/player-finished.mp3": "/bomber/static/media/player-finished.1d74c4f4fac4bb4fa464.mp3",
+    "static/media/player-loss.png": "/bomber/static/media/player-loss.f7d5770e81c308eab851.png",
+    "static/media/bomb-2.mp3": "/bomber/static/media/bomb-2.30b2da7da51e097ecb02.mp3",
+    "static/media/9.png": "/bomber/static/media/9.78957427e6f3736156ea.png",
+    "static/media/player-death.mp3": "/bomber/static/media/player-death.6227fabf2e986f3ff9ed.mp3",
+    "static/media/10.png": "/bomber/static/media/10.b9e1164e6d15a944fcab.png",
+    "static/media/8.png": "/bomber/static/media/8.951f6dfdb37a64cdbb90.png",
+    "static/media/7.png": "/bomber/static/media/7.de453cebca08d7eba27b.png",
+    "static/media/5.png": "/bomber/static/media/5.c5f1f7140135af4557f7.png",
+    "static/media/3.png": "/bomber/static/media/3.eaa04c795054290f27a5.png",
+    "static/media/4.png": "/bomber/static/media/4.911dfd34bbcd1f1b5a1b.png",
+    "static/media/1.png": "/bomber/static/media/1.22d46852dc393750396a.png",
+    "static/media/bomb.png": "/bomber/static/media/bomb.38b3cb54bba82663a728.png",
+    "static/media/waller-1.mp3": "/bomber/static/media/waller-1.16d0633e85854d838900.mp3",
+    "index.html": "/bomber/index.html",
+    "main.429468b7.css.map": "/bomber/static/css/main.429468b7.css.map",
+    "main.3cce8ef4.js.map": "/bomber/static/js/main.3cce8ef4.js.map",
+    "787.f8a1d068.chunk.js.map": "/bomber/static/js/787.f8a1d068.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.429468b7.css",
+    "static/js/main.3cce8ef4.js"
+  ]
+}
