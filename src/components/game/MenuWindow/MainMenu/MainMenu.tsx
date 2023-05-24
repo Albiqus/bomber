@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { Logo } from "./Logo/Logo"
-import { Div, InfoButton, P, StartButton, VolumeInput } from "./MainMenu-styles"
+import { Bomb, Div, InfoButton, P, StartButton, VolumeInput } from "./MainMenu-styles"
 import { setMusicVolume } from "../../../../actionCreators/sounds/setMusicVolume"
 import { setEffectsVolume } from "../../../../actionCreators/sounds/setEffectsVolume"
 import { RootState } from "../../../../store/store"
@@ -29,6 +29,7 @@ export const MainMenu = () => {
 
     return (
         <Div>
+            <Bomb/>
             <Logo />
             <StartButton onClick={onPlayButtonClick}>играть</StartButton>
             <InfoButton onClick={onInfoButtonClick}>об игре</InfoButton>

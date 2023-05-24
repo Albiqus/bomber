@@ -1,5 +1,6 @@
 import styled, { keyframes } from 'styled-components'
 import wallpaper from '../../../../images/wallpapers/menu.gif'
+import bomb from '../../../../images/wallpapers/bomb.png';
 
 
 const appearance = keyframes`
@@ -12,6 +13,7 @@ const appearance = keyframes`
 `
 
 export const Div = styled.div`
+    position: relative;
     width: 900px;
     height: 900px;
     background-image: url(${wallpaper});
@@ -82,4 +84,26 @@ export const VolumeInput = styled.input`
     outline: 5px solid white;
     background-color: black
 }
+`
+
+const bombAnimation = keyframes`
+  0% {
+    transform: scale(0.7, 0.7);
+  }
+  50%{
+    transform: scale(1, 1);
+  }
+  100% {
+   transform: scale(0.7, 0.7);
+  }
+`
+
+export const Bomb = styled.div`
+position: absolute;
+right: 120px;
+top: 90px;
+width: 90px;
+height: 90px;
+background-image: url(${bomb});
+animation: ${bombAnimation} 0.85s infinite;
 `

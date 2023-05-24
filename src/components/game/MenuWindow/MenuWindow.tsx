@@ -13,7 +13,7 @@ export const MenuWindow = () => {
     const { musicVolume } = useSelector((state: RootState) => state.sounds);
     const { isLevelsWindow, isInfoWindow } = useSelector((state: RootState) => state.windows);
 
-    
+
     const audio = React.useRef<HTMLAudioElement>(null)
     useEffect(() => {
         if (audio.current) {
@@ -24,7 +24,7 @@ export const MenuWindow = () => {
 
     return (
         <Div>
-            {!isLevelsWindow && !isInfoWindow &&<MainMenu />}
+            {!isLevelsWindow && !isInfoWindow && <MainMenu />}
             {isLevelsWindow && <LevelsMenu />}
             {isInfoWindow && <InfoMenu />}
             <audio src={sound} ref={audio} autoPlay loop muted={false} hidden></audio>
